@@ -14,7 +14,7 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'G-ZBKYV7740L');
+        gtag('config', 'G-ZBKYV7740L', {'debug_mode':true});
     </script>
 
     <!-- Global Css Style -->
@@ -92,14 +92,13 @@
 
         .btnHorizontal {
             display: flex;
-            width: 70vw;
-            align-items: flex-end;
             gap: 3vw;
         }
 
         .btn {
-            display: flex;
-            padding: 5vw 0rem;
+            width: 35vw;
+            height: 30vw;
+            padding-top: 5vw;
             flex-direction: column;
             align-items: center;
             gap: 1rem;
@@ -108,31 +107,42 @@
             background: #FFF;
             box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
         }
+
+        .imgHorizontalCenter {
+            width: 100%;
+            text-align: center;
+        }
     </style>
 
     <script>
         function download_android(){
-            console.log("AOS");
-            gtag('event', 'd_AOS');
+            console.log("Download AOS");
+            gtag('event', 'download_app', {'where':'AOS', 'device':check_device()});
         }
 
         function download_iOS(){
-            console.log("iOS");
-            gtag('event', 'd_iOS');
+            console.log("Download iOS");
+            gtag('event', 'download_app', {'where':'iOS', 'device':check_device()});
         }
-    </script>
 
-    <script>
-        window.onload = function() {
+        function check_device(){
             IorA = navigator.vendor;
 
             if (IorA.indexOf("Apple Computer") > -1) {
-                console.log("iOS");
-                gtag('event', 'j_iOS');
-            } else { //if(IorA.indexOf("android") > -1){
-                console.log("AOS");
-                gtag('event', 'j_AOS');
+                console.log("iOS Detected");
+                return "iOS"
+            } else if(IorA.indexOf("android") > -1) {
+                console.log("AOS Detected");
+                return "AOS"
             }
+            else {
+                console.log("IDK Detected");
+                return "IDK"
+            }
+        }
+
+        window.onload = function() {
+            gtag('event', 'site_join', {'where':check_device()});
         }
     </script>
 </head>
@@ -153,12 +163,16 @@
                 <div class="btnHorizontal">
 
                     <a href="https://github.com/space-traveler-team/Gogo-Soma/releases/download/app/gogo_at_soma_release.apk" class="btn" onclick="download_android()">
-                        <img src="static/img/android.svg" style="width: 20vw;">
+                        <div class="imgHorizontalCenter">
+                            <img src="static/img/android.svg" style="width: 20vw;">
+                        </div>
                         <p>Android</p>
                     </a>
 
                     <a class="btn" href="https://testflight.apple.com/join/ChWhBhtD" onclick="download_iOS()">
-                        <img src="static/img/apple.svg" style="width: 10vw;"/>
+                        <div class="imgHorizontalCenter">
+                            <img src="static/img/apple.svg" style="width: 10vw;"/>
+                        </div>
                         <p>iOS</p>
                     </a>
                 </div>
