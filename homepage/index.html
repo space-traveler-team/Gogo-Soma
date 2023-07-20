@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="ALL"/>
+
+    <link rel="icon" href="static/img/gogo_icon.png">
+    <title>ㄱㄱ? at soma</title>
+
+    <!-- Global Css Style -->
+    <style>
+        @font-face {
+            font-family: 'SUIT-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            background: #F7F7F7;
+        }
+    </style>
+    <!-- Text Css Style -->
+    <style>
+        p {
+            color: #000;
+            text-align: center;
+            font-size: 5vw;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+
+        h1 {
+            margin-bottom: 0;
+
+            color: #000;
+            text-align: center;
+            font-size: 5vw;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+
+        h2 {
+            margin-top: 0;
+
+            color: #717171;
+            text-align: center;
+            font-size: 3vw;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+        }
+    </style>
+
+    <!-- Custom Css Style-->
+    <style>
+        .setVerticalCenter{
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            display: inline-flex;
+        }
+
+        .setHorizontalCenter {
+            align-self: stretch;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            display: flex;
+            margin-top: 3rem;
+        }
+
+        .btnHorizontal {
+            display: flex;
+            width: 70vw;
+            align-items: flex-end;
+            gap: 3vw;
+        }
+
+        .btn {
+            display: flex;
+            padding: 5vw 0rem;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            flex: 1 0 0;
+            border-radius: 0.75rem;
+            background: #FFF;
+            box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+        }
+    </style>
+
+    <script>
+        function download_android(){
+            // TODO : Google Play Store URL로 변경
+            window.location.href='https://naver.com';
+        }
+
+        function download_iOS(){
+            window.location.href='https://testflight.apple.com/join/ChWhBhtD';
+        }
+    </script>
+</head>
+<body>
+    <div class="setVerticalCenter">
+        <div class="setHorizontalCenter">
+
+            <div class="setHorizontalCenter">
+                <img src="static/img/gogo_logo.svg" style="width: 20vw"/>
+            </div>
+
+            <div class="setHorizontalCenter" style="gap: 8px;">
+                <h1>어느 플랫폼에서 이용하시겠어요?</h1>
+                <h2>선택하시면, 다운로드 링크로 이동합니다.</h2>
+            </div>
+
+            <div class="setHorizontalCenter">
+                <div class="btnHorizontal">
+                    <div class="btn" onclick="download_android()">
+                        <img src="static/img/android.svg" style="width: 20vw;">
+                        <p>Android</p>
+                    </div>
+                    <div class="btn" onclick="download_iOS()">
+                        <img src="static/img/apple.svg" style="width: 10vw;"/>
+                        <p>iOS</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
