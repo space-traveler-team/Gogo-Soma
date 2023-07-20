@@ -7,6 +7,16 @@
     <link rel="icon" href="static/img/gogo_icon.png">
     <title>ㄱㄱ? at soma</title>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZBKYV7740L"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZBKYV7740L');
+    </script>
+
     <!-- Global Css Style -->
     <style>
         @font-face {
@@ -54,6 +64,10 @@
             font-weight: 500;
             line-height: normal;
         }
+
+        a {
+            text-decoration: none;
+        }
     </style>
 
     <!-- Custom Css Style-->
@@ -98,12 +112,27 @@
 
     <script>
         function download_android(){
-            // TODO : Google Play Store URL로 변경
-            window.location.href='https://naver.com';
+            console.log("AOS");
+            gtag('event', 'd_AOS');
         }
 
         function download_iOS(){
-            window.location.href='https://testflight.apple.com/join/ChWhBhtD';
+            console.log("iOS");
+            gtag('event', 'd_iOS');
+        }
+    </script>
+
+    <script>
+        window.onload = function() {
+            IorA = navigator.vendor;
+
+            if (IorA.indexOf("Apple Computer") > -1) {
+                console.log("iOS");
+                gtag('event', 'j_iOS');
+            } else { //if(IorA.indexOf("android") > -1){
+                console.log("AOS");
+                gtag('event', 'j_AOS');
+            }
         }
     </script>
 </head>
@@ -122,14 +151,16 @@
 
             <div class="setHorizontalCenter">
                 <div class="btnHorizontal">
-                    <div class="btn" onclick="download_android()">
+
+                    <a href="https://github.com/space-traveler-team/Gogo-Soma/releases/download/app/gogo_at_soma_release.apk" class="btn" onclick="download_android()">
                         <img src="static/img/android.svg" style="width: 20vw;">
                         <p>Android</p>
-                    </div>
-                    <div class="btn" onclick="download_iOS()">
+                    </a>
+
+                    <a class="btn" href="https://testflight.apple.com/join/ChWhBhtD" onclick="download_iOS()">
                         <img src="static/img/apple.svg" style="width: 10vw;"/>
                         <p>iOS</p>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
