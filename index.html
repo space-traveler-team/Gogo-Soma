@@ -112,6 +112,24 @@
             width: 100%;
             text-align: center;
         }
+
+        .logoImg { width: 20vw; }
+        .androidImg { width: 20vw; }
+        .iosImg { width: 10vw; }
+    </style>
+    
+    <style>
+        @media (min-width: 1000px) {
+            h1 { font-size: 2vw; }
+            h2 { font-size: 1vw; }
+            p { font-size: 1.5vw; }
+
+            .btn { width: 20vw; height: 15vw; }
+
+            .logoImg { width: 10vw; }
+            .androidImg { width: 10vw; }
+            .iosImg { width: 5vw; }
+        }
     </style>
 
     <script>
@@ -151,7 +169,7 @@
         <div class="setHorizontalCenter">
 
             <div class="setHorizontalCenter">
-                <img src="static/img/gogo_logo.svg" style="width: 20vw"/>
+                <img src="static/img/gogo_logo.svg" class="logoImg"/>
             </div>
 
             <div class="setHorizontalCenter" style="gap: 8px;">
@@ -164,14 +182,14 @@
 
                     <a href="https://github.com/space-traveler-team/Gogo-Soma/releases/download/app/gogo_at_soma_release.apk" class="btn" onclick="download_android()">
                         <div class="imgHorizontalCenter">
-                            <img src="static/img/android.svg" style="width: 20vw;">
+                            <img src="static/img/android.svg" class="androidImg"/>
                         </div>
                         <p>Android</p>
                     </a>
 
                     <a class="btn" href="https://testflight.apple.com/join/ChWhBhtD" onclick="download_iOS()">
                         <div class="imgHorizontalCenter">
-                            <img src="static/img/apple.svg" style="width: 10vw;"/>
+                            <img src="static/img/apple.svg" class="iosImg"/>
                         </div>
                         <p>iOS</p>
                     </a>
